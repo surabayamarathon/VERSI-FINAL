@@ -56,7 +56,15 @@ body {
   font-size: 20px;
   margin-bottom: 15px;
 }
+<!-- DATA PEMBELI -->
+<div class="card">
+  <div class="title">DATA PEMBELI</div>
 
+  <input type="text" placeholder="Nama Lengkap">
+  <input type="email" placeholder="Email Aktif">
+  <input type="tel" placeholder="Nomor WhatsApp">
+  <input type="text" placeholder="Kota Domisili">
+</div>
 /* TIKET */
 .ticket {
   display: flex;
@@ -195,7 +203,18 @@ button {
     <img src="qris.jpg">
   </div>
 </div>
-
+<div style="margin-top:20px;">
+  <div class="title">UPLOAD BUKTI PEMBAYARAN</div>
+  <input type="file" id="bukti" accept="image/*">
+</div>
+  input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
 <button onclick="kirim()">SUBMIT ORDER</button>
 
 </div>
