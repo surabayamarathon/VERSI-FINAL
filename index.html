@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Event Ticket</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #06121f;
+  color: white;
+}
+
+/* BANNER */
+.banner {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CARD */
+.container {
+  padding: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #0b1f3a, #071427);
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,255,255,0.2);
+}
+
+/* TITLE */
+.title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* TIKET */
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+}
+
+.ticket.active {
+  border: 1px solid cyan;
+  box-shadow: 0 0 10px cyan;
+}
+
+.label { flex: 1; }
+.price { font-weight: bold; }
+
+/* WARNA */
+.cat1 { color: red; }
+.cat2 { color: yellow; }
+.cat3 { color: cyan; }
+.cat4 { color: lightgreen; }
+.cat5 { color: pink; }
+.cat6 { color: violet; }
+
+/* INPUT */
+select, .total {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  border: none;
+  margin-top: 10px;
+}
+
+/* QRIS */
+.qris {
+  text-align: center;
+}
+
+.qris img {
+  width: 220px;
+  margin-top: 10px;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 BANNER (GANTI GAMBAR KAMU DI SINI) -->
+<div class="banner">
+  <img src="banner.jpg">
+</div>
+
+<div class="container">
+
+<!-- TIKET -->
+<div class="card">
+  <div class="title">PILIHAN TIKET</div>
+
+  <div class="ticket" onclick="pilih(this,3500000)">
+    <span class="label">CAT E / X / O / L</span>
+    <span class="price">IDR 3.500.000</span>
+  </div>
+
+  <div class="ticket" onclick="pilih(this,3950000)">
+    <span class="label">Horizon Box</span>
+    <span class="price">IDR 3.950.000</span>
+  </div>
+
+  <div class="ticket" onclick="pilih(this,3550000)">
+    <span class="label cat1">CAT 1</span>
+    <span class="price">IDR 3.550.000</span>
+  </div>
+
+  <div class="ticket" onclick="pilih(this,3300000)">
+    <span class="label cat2">CAT 2</span>
+    <span class="price">IDR 3.300.000</span>
+  </div>
+
+  <div class="ticket" onclick="pilih(this,2700000)">
+    <span class="label cat3">CAT 3</span>
+    <span class="price">IDR 2.700.000</span>
+  </div>
+
+  <div class="ticket" onclick="pilih(this,2250000)">
+    <span class="label cat4">CAT 4</span>
+    <span class="price">IDR 2.250.000</span>
+  </div>
+
+  <div class="ticket" onclick="pilih(this,2000000)">
+    <span class="label cat5">CAT 5</span>
+    <span class="price">IDR 2.000.000</span>
+  </div>
+
+  <div class="ticket" onclick="pilih(this,1550000)">
+    <span class="label cat6">CAT 6</span>
+    <span class="price">IDR 1.550.000</span>
+  </div>
+
+  <select id="qty">
+    <option value="1">Jumlah Tiket: 1</option>
+    <option value="2">Jumlah Tiket: 2</option>
+    <option value="3">Jumlah Tiket: 3</option>
+  </select>
+
+  <div class="total" id="total">Total: IDR 0</div>
+</div>
+
+<!-- QRIS -->
+<div class="card">
+  <div class="title">SCAN QRIS</div>
+  <div class="qris">
+    <!-- GANTI QRIS -->
+    <img src="qris.jpg">
+  </div>
+</div>
+
+<!-- BUTTON -->
+<button onclick="kirim()">SUBMIT ORDER</button>
+
+</div>
+
+<script>
+let harga = 0;
+
+function pilih(el, value){
+  document.querySelectorAll('.ticket').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  harga = value;
+  hitung();
+}
+
+function hitung(){
+  let qty = document.getElementById("qty").value;
+  let total = harga * qty;
+  document.getElementById("total").innerText =
+    "Total: IDR " + total.toLocaleString("id-ID");
+}
+
+document.getElementById("qty").addEventListener("change", hitung);
+
+function kirim(){
+  window.location.href = "https://succes-payment.carrd.co";
+}
+</script>
+
+</body>
+</html>
