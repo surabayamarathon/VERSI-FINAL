@@ -19,10 +19,24 @@ body {
   overflow: hidden;
 }
 
-<img src="event.jpg"> {
+.banner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* JUDUL */
+.judul {
+  text-align: center;
+  padding: 20px;
+}
+
+.judul h1 {
+  font-size: 24px;
+}
+
+.judul h2 {
+  color: #00c6ff;
 }
 
 /* CARD */
@@ -38,7 +52,6 @@ body {
   border: 1px solid rgba(0,255,255,0.2);
 }
 
-/* TITLE */
 .title {
   font-size: 20px;
   margin-bottom: 15px;
@@ -87,7 +100,7 @@ select, .total {
   text-align: center;
 }
 
-<img src="qris.jpg"> {
+.qris img {
   width: 220px;
   margin-top: 10px;
 }
@@ -108,10 +121,16 @@ button {
 
 <body>
 
-<!-- 🔥 BANNER (GANTI GAMBAR KAMU DI SINI) -->
-<img src="event.jpg">
-  <div class="banner">
+<!-- BANNER -->
+<div class="banner">
+  <img src="event.jpg">
+</div>
 
+<!-- JUDUL -->
+<div class="judul">
+  <h1>FORM PEMBELIAN TIKET</h1>
+  <h2>F'FOREVER</h2>
+  <p>29 Mei - 30 Mei | Indonesia Arena</p>
 </div>
 
 <div class="container">
@@ -173,12 +192,10 @@ button {
 <div class="card">
   <div class="title">SCAN QRIS</div>
   <div class="qris">
-    <!-- GANTI QRIS -->
     <img src="qris.jpg">
   </div>
 </div>
 
-<!-- BUTTON -->
 <button onclick="kirim()">SUBMIT ORDER</button>
 
 </div>
